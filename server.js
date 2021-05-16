@@ -1,4 +1,4 @@
-const http = require('http')
+const httpServer = require("http").createServer()
 const mongoose = require("mongoose")
 const Document = require("./Document")
 mongoose.connect("mongodb+srv://thuan:rmk123456@cluster0.stpty.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -7,11 +7,11 @@ mongoose.connect("mongodb+srv://thuan:rmk123456@cluster0.stpty.mongodb.net/myFir
   useFindAndModify: false,
   useCreateIndex: true,
 })
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-const io = require('socket.io')(3001, {
+const io = require('socket.io')(PORT, {
     cors: {
-      origin: PORT,
+      origin:  "https://blooming-lowlands-14678.herokuapp.com/",
       methods: ['GET', 'POST'],
     },
   })
