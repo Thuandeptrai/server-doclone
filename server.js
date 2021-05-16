@@ -1,15 +1,15 @@
 const mongoose = require("mongoose")
 const Document = require("./Document")
-mongoose.connect("mongodb+srv://thuan:rmk123456@cluster0.y2yjw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+mongoose.connect("mongodb+srv://thuan:rmk123456@cluster0.stpty.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
 {
   useNewUrlParser: true, useUnifiedTopology: true ,
   useFindAndModify: false,
   useCreateIndex: true,
 })
-
+const PORT = process.env.PORT || 3000;
 const io = require('socket.io')(3001, {
     cors: {
-      origin: 'http://localhost:3000',
+      origin: PORT,
       methods: ['GET', 'POST'],
     },
   })
